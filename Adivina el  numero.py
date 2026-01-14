@@ -6,9 +6,9 @@ adivina = int(input("ingresa tu numero: "))
 while adivina != numero:
     if adivina < numero:
         print("muy bajo")
-        print("intenta de nuevo, el numero fue:", numero)
+        print("intenta de nuevo")
     elif adivina > numero:
         print("muy alto")
-        print("intenta de nuevo, el numero fue:", numero)
+        print("intenta de nuevo")
     adivina = int(input("ingresa tu numero: "))
 print("felicidades, adivinaste el numero:", numero)
