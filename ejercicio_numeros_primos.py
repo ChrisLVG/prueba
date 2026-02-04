@@ -10,7 +10,4 @@ else:
                 contador+=1
         if(contador==2):
             primos.append(comienzo)
-    print(primos)
-
-    
-            
+    print(primos)        
