@@ -2,9 +2,9 @@
 from numpy import integer
 import pandas as pd
 #usamos la funcion read_csv para leer el archivo csv y lo guardamos en un dataframe y definimos los nombres de las columnas
-df=pd.read_csv("archivos/datos.csv", names=["nombre","edad","Universidad"])
-df_removiendo_fila=pd.read_csv("archivos/datos.csv", names=["nombre","edad","Universidad"], skiprows=1) #remueve la primera fila del archivo csv
-df2=df=pd.read_csv("archivos/datos.csv", names=["nombre","edad","Universidad"])
+df=pd.read_csv("archivo_csv\\datos.csv", names=["nombre","edad","Universidad"])
+df_removiendo_fila=pd.read_csv("archivo_csv\\datos.csv", names=["nombre","edad","Universidad"], skiprows=1) #remueve la primera fila del archivo csv
+df2=df=pd.read_csv("archivo_csv\\datos.csv", names=["nombre","edad","Universidad"])
 
 # obtenemos la informacion de la columna nombre
 nombres=df["nombre"]
@@ -47,6 +47,25 @@ visualizacion_diferente=df.loc[2,:] #devuelve la informacion de la tercera fila 
 informacion_columna_todas_filas=df["nombre"] #devuelve una serie con los valores de la columna "nombre" para todas las filas del dataframe
 
 #obteniendo informacion condicional
-
 info=df.loc[df["edad"]>20] #devuelve un nuevo dataframe con las filas donde el valor de la columna "edad" es mayor a 20
-print(info)
+
+#modificando el valor de una celda especifica del dataframe
+df.replace(to_replace="Emerlinda", value="Helen", inplace=True) #reemplaza el valor "Juan" por "Carlos" en todo el dataframe, inplace=True para modificar el dataframe original
+
+#borrando una fila del dataframe
+#df.drop(index=1, inplace=True) #borra la fila con el indice 1
+
+#borrando una fila condicional del dataframe
+#df.drop(index=df[df["nombre"]=="Emerlinda"].index, inplace=True) #borra las filas donde el valor de la columna "nombre" es igual a "Emerlinda"
+
+#borrando una fila con valores nulos del dataframe
+df.dropna(inplace=True) #borra las filas que contienen valores nulos en cualquier columna del dataframe
+
+#borrando filas repetidas del dataframe
+df.drop_duplicates(inplace=True) #borra las filas que son exactamente iguales en todas las columnas
+
+#borrando una columna del dataframe
+#df.drop(columns=["Universidad"], inplace=True)
+
+#Guardando el dataframe modificado en un nuevo archivo csv
+df.to_csv("archivo_csv\\datos_modificados.csv", index=False) #index=False para no guardar el indice del dataframe en el archivo csv
