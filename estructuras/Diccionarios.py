@@ -1,4 +1,9 @@
 #trabajar con diccionarios en python
+mi_diccionario = {
+    "nombre": "Juan",
+    "edad": 30,
+    "ciudad": "Madrid"
+}
 def manejar_diccionario(mi_diccionario):
     while True:
         print("\n=== MENÚ ===")
